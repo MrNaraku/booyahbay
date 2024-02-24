@@ -1,26 +1,19 @@
 
-
-
-
 body {
     padding: 0px;
     margin: 0px;
     box-sizing: border-box;
-    max-width: contain;
     font-family: "Poppins";
-    min-width: min-content;
 }
 
-
-
-@media only screen and (max-width: 1000px) {
+@media (max-width: 1000px) {
 
 
     nav {
         display: grid;
         justify-content: center;
         padding-bottom: 10px !important;
-        padding-top:20px !important;
+        padding-top: 20px !important;
     }
 
     .secondary_nav {
@@ -39,15 +32,13 @@ body {
         width: 400px;
         text-align: center !important;
         padding: 10px 0px 10px 0px !important;
-        
     }
 
     .dropdown-content {
         width: 402px;
-        
     }
 
-    
+
 
     .title .disclaimer {
         margin-right: -30px;
@@ -81,7 +72,8 @@ body {
     }
 
     #BrandLogo {
-        width: 40% !important;
+        width: 60% !important;
+        position:center;
     }
 
     .row {
@@ -95,7 +87,7 @@ body {
     }
 
     #my_picture {
-        min-width:15%;
+        min-width: 15%;
     }
 
     #me {
@@ -119,8 +111,6 @@ body {
         transform: scale(0.9);
         animation: fadeInAndScaleUp 2s ease forwards;
     }
-
-
 }
 
 @keyframes gradient {
