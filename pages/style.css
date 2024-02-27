@@ -111,6 +111,12 @@ body {
         transform: scale(0.9);
         animation: fadeInAndScaleUp 2s ease forwards;
     }
+
+    .post_icon {
+        width: 80% !important;
+    }
+
+
 }
 
 @keyframes gradient {
@@ -127,6 +133,9 @@ body {
     }
 }
 
+.post_icon {
+    width: 60%;
+}
 
 header {
     padding: 80px 0px 80px 0px;
