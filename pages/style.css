@@ -4,6 +4,7 @@ body {
     margin: 0px;
     box-sizing: border-box;
     font-family: "Poppins","Arial";
+    font-weight: 100;
 }
 
 @media (max-width: 1000px) {
@@ -72,7 +73,7 @@ body {
     }
 
     #BrandLogo {
-        width: 60% !important;
+        width: 100% !important;
         position:center;
     }
 
@@ -383,7 +384,7 @@ nav {
 
 
 .white_text{
-    color=white !important;
+    color:white !important;
 }
 
 
@@ -400,7 +401,7 @@ nav {
 
 .textual_content {
     font-family: "Poppins";
-    font-size: 18px;
+    font-size: 15px;
     text-align:justify;
     text-justify:inter-word !important;
     }
@@ -669,9 +670,3 @@ variab {
 }
 
 
-
-@font-face {
-    font-family: 'Poppins';
-    src: url('pages/Poppins/Poppins-Bold.ttf') format('truetype'), 
-        url('pages/Poppins/Poppins-Light.ttf') format('truetype'),
-}
