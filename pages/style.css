@@ -3,7 +3,7 @@ body {
     padding: 0px;
     margin: 0px;
     box-sizing: border-box;
-    font-family: "Poppins","Arial" !important;
+    font-family: "Poppins","Arial";
 }
 
 @media (max-width: 1000px) {
@@ -668,3 +668,10 @@ variab {
     }
 }
 
+
+
+@font-face {
+    font-family: 'Poppins';
+    src: url('pages/Poppins/Poppins-Bold.ttf') format('truetype'), 
+        url('pages/Poppins/Poppins-Light.ttf') format('truetype'),
+}
