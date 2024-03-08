@@ -434,7 +434,8 @@ nav {
 
 code {
     font-family: Consolas,"courier new";
-    color: red;
+    color: springgreen;
+    font-weight: 800;
     background-color: inherit;
     padding: 2px;
 }
@@ -508,10 +509,10 @@ a {
 
 
 .biblio_box {
-    margin: 25px 80px 40px 80px;
+    margin: 25px 30px 40px 30px;
     padding: 15px 20px 15px 20px;
-    background-color: #CACACA;
-    border-radius: 25px;
+    background-color: lightgrey;
+    border-radius: 5px;
     font-size: 17px;
     text-align: center;
     box-shadow: 0 3px 6px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%) !important;

@@ -119,10 +119,10 @@
                         <strong>File system paths.</strong> Knowing the full path of the original file when it was created can reveal hints about the OS, important critical directories, and common practices of the given user.
                     </li>
                     <li>
-                        <strong>Client-side software in use</strong> Knowing which tools and programs were used to handle the analyzed files can be cool (e.g., office suite, PDF-generating tool, camera models used to take pictures, etc). Tools and tools versions might indicate vulnerabilities, that goes without saying.
+                        <strong>Client-side software in use.</strong> Knowing which tools and programs were used to handle the analyzed files can be cool (e.g., office suite, PDF-generating tool, camera models used to take pictures, etc). Tools and tools versions might indicate vulnerabilities, that goes without saying.
                     </li>
                     <li>
-                        <strong>Other information</strong> Other useful information about the file (e.g., undo information, previous revisions, hidden collapsed column in a spreadsheet) or who created it (e.g., timestamps, from which we can check the time zone and do some inference on the location).
+                        <strong>Other information.</strong> Other useful information about the file (e.g., undo information, previous revisions, hidden collapsed column in a spreadsheet) or who created it (e.g., timestamps, from which we can check the time zone and do some inference on the location).
                     </li>
                 </ul>
                 <p>
@@ -186,7 +186,7 @@
                 </div><br />
                 <p>Look at all those juicy tags :D At this point, one could make some interesting observations...</p>
                 <p>Who the hell is <strong>16052941@BANK[...]</strong> (Yes, I have obscured part of it)?? Let’s first search for domains that sound like BANK[…] and go from there. Turns out it’s some bank in Indonesia. We got our first lead! If you don’t find anything with that domain, try with the waybackmachine. Next – like I said already – try to put the address in have haveibeenpwned. </p>
-                <p>Let’s now look at the timestamps. If we focus on the pdf metadata we see it was created in February 2027 <strong>(2017:02:18 16:04:29+07:00)</strong>. If we instead look at the system metadata, the modification date/time indicates March 2017 <strong>(2017:03:27 08:19:08-04:00)</strong>. I am not sure, but I think the system metadata here indicates modifications at system level (so at inode level) while the pdf metadata refers to actual changes in the pdf file. So, for example, someone might have changed the pdf content in February and then renamed the same pdf file in March. This is all speculation, but who cares. </p>
+                <p>Let’s now look at the timestamps. If we focus on the pdf metadata we see it was created in February 2017 <strong>(2017:02:18 16:04:29+07:00)</strong>. If we instead look at the system metadata, the modification date/time indicates March 2017 <strong>(2017:03:27 08:19:08-04:00)</strong>. I am not sure, but I think the system metadata here indicates modifications at system level (so at inode level) while the pdf metadata refers to actual changes in the pdf file. So, for example, someone might have changed the pdf content in February and then renamed the same pdf file in March. This is all speculation, but who cares. </p>
                 <p>Notice how the pdf was created in a UTC+07:00 time zone, which is <strong>Indochina Time (ICT).</strong>. This region includes Vietnam, Cambodia, Laos, Thailand and (guess what) parts of Indonesia. So yes, the guy was probably an employee at this Indonesian BANK[…].</p>
                 <div class="center">
                     <img src="images/3.png" width="100%">
@@ -321,7 +321,7 @@
 
 
 
-                      <div class="biblio_box  ">
+                      <div class="biblio_box">
 
 
                           <h4 id="bibliography">Related links</h4>
