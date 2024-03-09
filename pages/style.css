@@ -433,9 +433,8 @@ nav {
 }
 
 code {
-    font-family: Consolas,"courier new";
+    font-family: Consolas, "courier new";
     color: springgreen;
-    font-weight: 800;
     background-color: inherit;
     padding: 2px;
 }
