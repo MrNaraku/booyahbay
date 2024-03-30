@@ -76,6 +76,9 @@
                         <li>
                             <a href="#part4">Can you dig it?</a>
                         </li>
+                        <li>
+                            <a href="#part5">Recon-ng DNS bruteforcing</a>
+                        </li>
 
                         <li>
                             <a href="#bibliography">Related links</a>
@@ -372,7 +375,7 @@
                 </div>
                 <br />
                 <p>
-                    Going back to the “polimi.it” example, we run:
+                    For demonstration purposes, we run whois on uni-tuebingen.de and we find the primary DNS server for the domain, then we use dig on that server looking for any record:
                 </p>
                 <div class="center">
                     <img src="images/16.png" width="100%">
@@ -381,7 +384,7 @@
                     At this point we could utilize the obtained names to find the IP addresses associated to, for instance, the mail exchange (MX) server of the target organization. This can be simply accomplished through another dig search on the name of the MX server.
                 </p>
                 <div class="center">
-                    <img src="images/18.PNG" width="100%">
+                    <img src="images/17.PNG" width="100%">
                 </div><br />
                 <p>
                     <strong>This post ain’t finished yet, but it shall continue as soon as I find some time.</strong>
