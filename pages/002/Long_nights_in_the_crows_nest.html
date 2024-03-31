@@ -36,7 +36,7 @@
     <header>
         <div class="title">
             <h2><strong>Long nights in the crow's nest</strong></h2>
-            <h5>Reconnaissance through DNS with whois, recong</h5>
+            <h5>Few reconnaissance techniques involving DNS</h5>
 
         </div>
 
@@ -74,10 +74,10 @@
                             <a href="#part3">DNS servers and nslookup</a>
                         </li>
                         <li>
-                            <a href="#part4">Can you dig it?</a>
+                            <a href="#part4">Resource Records digging</a>
                         </li>
                         <li>
-                            <a href="#part5">Recon-ng DNS bruteforcing</a>
+                            <a href="#part5">DNS reverse lookups</a>
                         </li>
 
                         <li>
@@ -259,13 +259,13 @@
                     <img src="images/10.png" width="70%">
                 </div><br />
                 <p>
-                    Then we could go for “Related networks” and obtain a list of all the networks’ addresses associated to the organization:
+                    Then we could go for <strong>“Related networks”</strong> and obtain a list of all the networks’ addresses associated to the organization:
                 </p>
                 <div class="center">
                     <img src="images/11.png" width="70%">
                 </div><br />
                 <p>
-                    Or we could explore the POC (points of contact) for the organization’s NOC and find…
+                    Or we could explore the <strong>POC (points of contact) </strong>for the organization’s NOC and find…
                 </p>
                 <div class="center">
                     <img src="images/12.png" width="70%">
@@ -363,7 +363,7 @@
 
                 </div>
 
-                <h6 class="titleh" id="part4">Can you dig it?</h6>
+                <h6 class="titleh" id="part4">Resource Records digging</h6>
                 <hr class="black-line">
                 <p>
                     As we’ve seen above, we can use the dig utility for various kinds of DNS research, including zone transfers. So now that we used whois to determine the nameserver associated with the target domain X, let’s retrieve all X’s records. Dig uses the following syntax:
@@ -381,22 +381,49 @@
                     <img src="images/16.png" width="100%">
                 </div><br />
                 <p>
-                    At this point we could utilize the obtained names to find the IP addresses associated to, for instance, the mail exchange (MX) server of the target organization. This can be simply accomplished through another dig search on the name of the MX server.
+                    At this point we could utilize the obtained names to find the IP addresses associated to, for instance, the Mail Exchanger (MX) server of the target organization. This can be simply accomplished through another dig search on the name of the MX server.
+                </p>
+                <p>
+                    Note that the Mail Exchanger (MX) record is used to define the hosts where mail for a
+                    domain should be sent. Such records can point to any host, inside or outside the domain—as long as that host is set up to receive mail for that
+                    domain.
                 </p>
                 <div class="center">
                     <img src="images/17.PNG" width="100%">
                 </div><br />
                 <p>
-                    <strong>This post ain’t finished yet, but it shall continue as soon as I find some time.</strong>
+                    <strong></strong>
+                </p>
+                <p>
+                    Another useful tidbit obtained from querying any resource record is to be found in the TXT record about <strong>SPF (Sender Policy Framework)</strong> email authentication protocol. This one:
+                </p>
+                <div class="center">
+                    <img src="images/18.PNG" width="100%">
+                </div><br />
+
+                <p>
+                    When an email is sent from the domain implementing SPF (here is uni-tuebingen.de) the recipient mail server will look at the header of the email (in the “From” field) and find that same domain name. Next, it will query that domain’s authoritative DNS server to retrieve the domain’s SPF TXT record. Such record (shown in the picture above) basically contains a list of IP addresses and names indicating the sending email servers to be trusted and the ones not to be trusted. Details about this stuff can be found in <a href="https://dmarcly.com/blog/what-is-an-spf-record-and-how-does-it-work-spf-record-explained"><strong>here</strong></a>.
+                </p>
+                <p>
+                    Here, we know that the SPF record is telling the recipient server to trust emails from uni-tuebingen.de if they are sent by mail servers in the IPv4 address range 134.2.5.192/27. The “+” means that emails coming from these addresses “pass” the SPF check. Same is true for the IPv6 addresses in the range 2001:7c0:300c:3105::/64. The “?” indicates neutrality, meaning that emails coming from these addresses do not fail nor pass the SPF check (ranges 134.2.0.0/16 and 2001:7c0:3000::/40). The “-“ would indicate the addresses not to trust, causing the emails to fail the SPF check. Here there are none. Then there are some names following the “include” parameter, telling the recipient mail server to reference the SPF TXT records related to them. Finally, there’s the  “~all” parameter, indicating a so-called “Softfail” policy. This is the equivalent of telling the recipient mail server<em> “if the emails fails the SPF check, don’t discard right away but flag it instead and handle it with caution”</em>. All this information is publicly available and results very useful to potential attackers. The most obvious thing one could think of is to send spoofed emails from within the IP address ranges allowed by the SPF policies, to increase the likelihood of successful delivery while avoiding spam detection.
                 </p>
 
 
 
+                <h6 class="titleh" id="part5">DNS reverse lookups</h6>
+                <hr class="black-line">
+                <p>
+                    Even if we are used to think of DNS only in the process of “forward lookup”, there can be “reverse lookup” too. In forward lookups we have a FQDN and we want to search the corresponding IP address (and to do this, we search for A and AAAA records, holding this information). In backward lookups we do the opposite. We have an IP address and we want to search for the corresponding FQDN, using the PTR records. Such reverse DNS query is performed with the <strong>-x option</strong> in dig. Like this:
+                </p>
 
+                <div class="code_content">
+                    <code>
+                        dig -x [IP_ADDRESS]
+                    </code>
+                </div>
+                <br />
 
-
-
-
+                <p>For instance, we could focus on the IP addresses shown by the SPF TXT record and run dig -x manually on each. Since this can be a pretty time-consuming task, many tools exist that allow you to automate this process. Among them, there is <strong>recon-ng</strong>.</p>
 
 
 
@@ -438,6 +465,8 @@
                             <br />
                         </p>
                     </a>
+
+
 
 
 
