@@ -129,6 +129,20 @@ body {
     .strong {
         font-weight: bold;
     }
+	
+	.poem-container {
+    font-family: 'Garamond', serif;
+	font-size:16px !important;
+    direction: ltr;
+    text-align: center;
+	font-weight: 500;
+    padding: 18px;
+    margin: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: white;
+    color: #333;
+}
 
 
 
@@ -741,4 +755,25 @@ variab {
     color:slategrey;
 
     
+}
+
+.poem-container {
+    font-family: 'Garamond', serif;
+	font-size:18px;
+    direction: ltr;
+    text-align: center;
+	font-weight: 500;
+    padding: 18px;
+    margin: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: white;
+    color: #333;
+}
+
+/* Add this CSS to your <style> section or external stylesheet */
+.highlight {
+    background-color: #fff9c4; /* Soft yellow background */
+    padding: 2px 4px;         /* Small padding to make the highlight stand out */
+    border-radius: 3px;       /* Optional: rounded corners for a softer look */
 }
