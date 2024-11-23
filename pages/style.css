@@ -30,13 +30,13 @@ body {
 
 
     .dropdown {
-        width: 400px;
+        width: 380px;
         text-align: center !important;
         padding: 10px 0px 10px 0px !important;
     }
 
     .dropdown-content {
-        width: 402px;
+        width: 380px;
     }
 
 
@@ -62,6 +62,19 @@ body {
 
     .left {
         width: 20% !important;
+        border-top-left-radius: 20px;
+        border-bottom-left-radius: 20px;
+    }
+	
+	.small-right {
+        width: 65% !important;
+        border-top-right-radius: 20px;
+        border-bottom-right-radius: 20px;
+        background-color: #c0c7cc;
+    }
+	
+    .big-left {
+        width: 35% !important;
         border-top-left-radius: 20px;
         border-bottom-left-radius: 20px;
     }
@@ -116,6 +129,10 @@ body {
     .post_icon {
         width: 80% !important;
     }
+	
+	.person_icon {
+        width: 50% !important;
+    }
 
     .big_image {
         width: 80% !important;
@@ -129,6 +146,20 @@ body {
     .strong {
         font-weight: bold;
     }
+	
+	.poem-container {
+    font-family: 'Garamond', serif;
+	font-size:16px !important;
+    direction: ltr;
+    text-align: center;
+	font-weight: 500;
+    padding: 18px;
+    margin: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: white;
+    color: #333;
+}
 
 
 
@@ -151,6 +182,10 @@ body {
 .post_icon {
     width: 60%;
 }
+
+.person_icon {
+    width: 30%;
+  }
 
 header {
     padding: 80px 0px 80px 0px;
@@ -206,7 +241,7 @@ nav {
     color: black;
     font-size: 16px;
     font-weight: bold;
-    width: 155px;
+    width: 154px;
     border: hidden;
     cursor: pointer;
     vertical-align: baseline;
@@ -332,6 +367,22 @@ nav {
 }
 
 
+.small-right {
+    width: 80%;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    background-color: #fdfffc;
+}
+
+
+
+.big-left {
+    width: 20%;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    background-color: #fdfffc;
+}
+
 
 .project_logo {
     transition: transform .7s ease-in-out;
@@ -369,8 +420,16 @@ nav {
     position: relative;
     text-align:left !important;
     font-size:15px;
-    
-    
+	width: 100%; /* or any specific width */   
+}
+
+.person_description {
+    padding:3px;
+    position: relative;
+    text-align:left !important;
+    font-size:13px;
+	margin-bottom: -25px;
+	width: 100%;	/* or any specific width */	
 }
 
 
@@ -439,6 +498,7 @@ code {
     padding: 2px;
 }
 
+
 output {
     font-family: monospace;
     color: dimgrey;
@@ -456,11 +516,17 @@ output {
     margin-right:4%;
 }
 
-#tools {
+#type {
     text-align:right;
     text-decoration:underline;
     color: darkred;
 }
+
+#score {
+    text-align:right;
+    color: #1985a1;
+}
+
 
 
 
@@ -741,3 +807,104 @@ variab {
 
     
 }
+
+.poem-container {
+    font-family: 'Garamond', serif;
+	font-size:18px;
+    direction: ltr;
+    text-align: center;
+	font-weight: 500;
+    padding: 18px;
+    margin: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: white;
+    color: #333;
+}
+
+/* Add this CSS to your <style> section or external stylesheet */
+.highlight {
+    background-color: #fff9c4; /* Soft yellow background */
+    padding: 2px 4px;         /* Small padding to make the highlight stand out */
+    border-radius: 3px;       /* Optional: rounded corners for a softer look */
+}
+
+
+.cool_quote_font {
+    font-size: 17px; /* Slightly larger than your usual 16px */
+    font-family: 'Poppins', serif; /* A classic, elegant font for quotes */
+    line-height: 1.5; /* For better readability */
+    text-align: center; /* Center-align the quote */
+    font-style: normal; /* Italic style to enhance the quote's look */
+	font-weight: bold;
+    color: #333; /* A dark grey color for the text */
+}
+
+
+table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    th, td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
+
+    /* Adjusting the width of the columns */
+    .colA {
+        width: 40%; /* Slightly longer */
+    }
+
+    .colB, .colC {
+        width: 30%;
+    }
+	
+
+    .table-container {
+        width: 90%; /* Adjust width as needed */
+        margin: 50px auto; /* Centers the div and adds margin to the top and bottom */
+        padding: 20px; /* Optional: Adds padding inside the div */
+        border: 1px solid #ddd; /* Optional: Adds a border around the div */
+        background-color: #f9f9f9; /* Optional: Adds a background color to the div */
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: Adds a subtle shadow */
+    }
+
+
+/* Paler golden effect for background */
+.golden {
+  background: linear-gradient(135deg, #FFF4C2, #F9D976, #E4C580);
+  background-size: 200% 200%;
+  animation: shine 5s infinite linear;
+}
+
+@keyframes shine {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+
+.silver {
+  background: linear-gradient(135deg, #F2F2F2, #DCDCDC, #BFBFBF);
+  background-size: 200% 200%;
+  animation: shine 5s infinite linear;
+}
+
+.copper {
+  background: linear-gradient(135deg, #D2B48C, #C0804D, #B87333);
+  background-size: 200% 200%;
+  animation: shine 5s infinite linear;
+}
+

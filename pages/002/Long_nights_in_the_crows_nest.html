@@ -423,7 +423,108 @@
                 </div>
                 <br />
 
+<<<<<<< HEAD
                 <p>For instance, we could focus on the IP addresses shown by the SPF TXT record and run dig -x manually on each. Since this can be a pretty time-consuming task, many tools exist that allow you to automate this process. Among them, there is <strong>recon-ng</strong>.</p>
+=======
+                <p>
+                    The idea is quite simple. The previous explorations have allowed us to gather blocks of IP addresses that we know are assigned to the organization. We can iteratively run a reverse lookup searching for hostnames associated to those addresses. This might help us in getting to know more about the target’s architecture.
+                </p>
+
+                <p>
+                    For instance, we could focus on the IP addresses shown by the SPF TXT record and run dig -x manually on each. Since this can be a pretty time-consuming task, many tools exist that allow you to automate this process. Among them, there is <strong>recon-ng</strong>.
+                </p>
+                <p>
+                    So, first we need to run recon-ng as sudo. Now we search the recon-ng marketplace for <strong>“recon/netblocks-hosts/reverse_resolve”, aka the Recon-ng module for the reverse queries.</strong>.
+                </p>
+                <div class="code_content">
+                    <code>
+                        sudo recon-ng<br />
+                    </code>
+                    <code>
+                        marketplace search reverse
+                    </code>
+                </div>
+                <br />
+                <div class="center">
+                    <img src="images/19.PNG" width="100%">
+                </div><br />
+
+                <p>
+                    Then we install the module with <strong>marketplace install recon/netblocks-hosts/reverse_resolve </strong> and load it with <strong>modules load recon/netblocks-hosts/reverse_resolve </strong>.
+                </p>
+
+                <div class="code_content">
+                    <code>
+                        [recon-ng][default] > marketplace install recon/netblocks-hosts/reverse_resolve<br />
+                    </code>
+                    <code>
+                        [recon-ng][default] > modules load recon/netblocks-hosts/reverse_resolve<br />
+                    </code>
+                </div>
+                <br />
+                <p>
+                    Then we insert a <strong>netblock</strong> - the set of addresses for which we want to run the reverse lookup - in our recon-ng database, like below... (In the image I added some random netblock just for showing how the process works).
+                </p>
+                <div class="code_content">
+                    <code>
+                        [recon-ng][default][reverse_resolve] > db insert netblocks
+                    </code>
+                </div>
+                <br />
+                <div class="center">
+                    <img src="images/20.PNG" width="80%">
+                </div><br />
+
+                <p>
+                    If we run “info”, then we obtain some details about the module. Here we are told that if we leave the source as default, recon-ng will reverse resolve the addresses we inserted in the netblocks database.
+                </p>
+
+                <div class="code_content">
+                    <code>
+                        [recon-ng][default][reverse_resolve] > info
+                    </code>
+                </div>
+                <br />
+
+                <div class="center">
+                    <img src="images/21.PNG" width="100%">
+                </div><br />
+
+                <p>
+                    At this point, we just run the module with <strong>run</strong> and we'll see what the tool finds out.
+                </p>
+
+                <div class="code_content">
+                    <code>
+                        [recon-ng][default][reverse_resolve] > run
+                    </code>
+                </div>
+                <br />
+                <p>
+                    A good question is: <strong>what netblocks do we use</strong>? I’d say all the ones we know belong to the target organization. In the previous steps we discussed the contents of a SPF TXT record that shows ranges of IP addresses whose sent emails are going to pass the SPF check. Let’s start with those. We have “134.2.5.197/27”, which means the range of addresses going from 134.2.5.192 to 134.2.5.223”. That’ll be our first netblock.
+                </p>
+
+                <p>
+                    Now I am not going to run recon-ng on the ip addresses of some legitimate organization here, because it doesn’t really make sense. So just to demonstrate what sort of output we could expect, we only try once or twice with dig -x [IP_ADDRESS] and obtain the corresponding PTR records. I gathered the results below.
+                </p>
+
+                <div class="center">
+                    <img src="images/22.PNG" width="100%">
+                </div><br />
+
+                      <p>
+                          As you can see, there’s a lot to consider here, especially when trying to <strong>map the target infrastructure, its topology and what services are running on it</strong>.
+                      </p>
+
+                      <p>
+                          Just as a curiosity, PTR records are stored in special zone files called <em>in-addr.arpa zone files</em>. As you may have noticed, the in-addr.arpa zone files are named using the IP block in reverse followed by in-addr.arpa. So 134.2.5.194 is indexed as 194.5.2.134.
+                      </p>
+            
+                      <p>
+                          Note that if we do all this with the reverse_resolve module, recon-ng will automatically saved all the discovered IP address – name associations into a database called hosts, which we can then view using “show hosts”.
+                      </p>
+            <br />
+>>>>>>> bd73748db8f21caf2bdcdd6def6b5b0c416b3a3d
 
 
 
